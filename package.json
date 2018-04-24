@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development node server",
-    "dev:watch": "cross-env NODE_ENV=development nodemon server",
+    "dev": "cross-env NODE_ENV=development node index.js",
+    "dev:watch": "cross-env NODE_ENV=development nodemon index.js",
     "prettier": "prettier --single-quote --trailing-comma es5 --write \"**/*.js\" ",
     "lint:fix": "eslint --ext .js --fix",
     "precommit": "lint-staged"
