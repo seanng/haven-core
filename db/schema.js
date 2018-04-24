@@ -60,12 +60,12 @@ const Hotel = sequelize.define('hotel', {
     defaultValue: 'Please enter a valid address',
   },
   locationLatitude: {
-    type: Sequelize.STRING,
-    defaultValue: '22.3964',
+    type: Sequelize.FLOAT,
+    defaultValue: 22.3964,
   },
   locationLongitude: {
-    type: Sequelize.STRING,
-    defaultValue: '114.1095',
+    type: Sequelize.FLOAT,
+    defaultValue: 114.1095,
   },
   costCurrency: {
     type: Sequelize.STRING,

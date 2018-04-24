@@ -54,8 +54,8 @@ const fakeData = {
       name: 'The Grand Hyatt Hong Kong',
       locationAddress:
         'Hong Kong Convention And Exhibition Centre, 1 Harbour Rd, Wan Chai, Hong Kong',
-      locationLatitude: '22.278060',
-      locationLongitude: '114.117346',
+      locationLatitude: 22.27806,
+      locationLongitude: 114.117346,
       costCurrency: 'HKD',
       costMinCharge: 120,
       costPerMinute: 4,
@@ -74,8 +74,8 @@ const fakeData = {
     {
       name: 'Regal Hotel Wanchai',
       locationAddress: '88 Yee Wo St, Causeway Bay',
-      locationLatitude: '22.279148',
-      locationLongitude: '114.186829',
+      locationLatitude: 22.279148,
+      locationLongitude: 114.186829,
       costCurrency: 'HKD',
       costMinCharge: 500,
       costPerMinute: 4,
@@ -100,8 +100,8 @@ const fakeData = {
     {
       name: 'The Peninsula Hong Kong',
       locationAddress: 'Salisbury Rd, Tsim Sha Tsui, Hong Kong',
-      locationLatitude: '22.295102',
-      locationLongitude: '114.173',
+      locationLatitude: 22.295102,
+      locationLongitude: 114.173,
       costCurrency: 'HK$',
       costMinCharge: 300,
       costPerMinute: 3,
@@ -120,8 +120,8 @@ const fakeData = {
     {
       name: 'Sheraton Hotel Kowloon',
       locationAddress: '88 Yee Wo St, Causeway Bay',
-      locationLatitude: '22.279148',
-      locationLongitude: '114.186829',
+      locationLatitude: 22.279148,
+      locationLongitude: 114.186829,
       costCurrency: 'HKD',
       costMinCharge: 500,
       costPerMinute: 4,
