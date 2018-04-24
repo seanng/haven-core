@@ -4,11 +4,8 @@ const logger = require('../../logger');
 const { hotel, sendMail, imageHosting } = require('../../services');
 const { Hotel, Employee } = require('../../db/models');
 
-exports.get = async req => {
-  if (req.params.id) {
-    return Hotel.fetchOne({ id: req.params.id });
-  }
-  return hotel.fetchAll().then(hotels => {
+exports.getAll = () =>
+  hotel.fetchAll().then(hotels => {
     const hotelsAvailabilityPromise = Promise.map(
       R.map(R.prop('id'), hotels),
       hotel.getAvailability
@@ -23,7 +20,8 @@ exports.get = async req => {
       return { hotels: hotelsWithAvailablity };
     });
   });
-};
+
+exports.getOne = req => Hotel.fetchOne({ id: req.params.id });
 
 exports.create = req =>
   hotel

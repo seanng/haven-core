@@ -27,7 +27,7 @@ Customer.prototype.comparePassword = function comparePassword(
   return compare(candidatePassword, this.getDataValue('password'));
 };
 
-Customer.fetchOne = params => Customer.findOne({ where: params });
+Customer.fetchOne = params => Customer.findOne({ where: params, raw: true });
 
 Customer.updateProfile = profile =>
   Customer.update(profile, {

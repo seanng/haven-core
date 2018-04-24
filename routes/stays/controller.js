@@ -2,11 +2,6 @@ const { Stay } = require('../../db/models');
 const { validateToken } = require('../../db/helpers');
 const room = require('../../services/room');
 
-const createBooking = req => {
-  const { userId } = validateToken(req.body.token);
-  return room.book(userId, req.body.hotel);
-};
-
 const checkin = req => Stay.checkIn(req.params.id);
 
 const checkout = req => room.checkOut(req.params.id);
@@ -31,13 +26,15 @@ exports.fetchByHotelId = req => {
 };
 
 exports.updateBooking = req => {
-  if (!req.params.id) {
-    return createBooking(req);
-  }
   const dictionary = {
     checkin,
     cancel,
     checkout,
   };
   return dictionary[req.body.action](req);
+};
+
+exports.createBooking = req => {
+  const { userId } = validateToken(req.body.token);
+  return room.book(userId, req.body.hotel);
 };
