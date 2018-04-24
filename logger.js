@@ -10,8 +10,8 @@ const divider = chalk.gray('\n-----------------------------------');
  */
 const logger = {
   // Called whenever there's an error on the server we want to print
-  error: err => {
-    console.error(chalk.red(err));
+  error: (...err) => {
+    console.error(chalk.red(err.join('')));
   },
 
   // Called when express.js app starts on given port w/o errors
@@ -32,17 +32,6 @@ Localhost: ${chalk.magenta(`http://${host}:${port}`)}
           : '')}${divider}
 ${chalk.blue(`Press ${chalk.italic('CTRL-C')} to stop`)}
     `);
-  },
-
-  socket: {
-    onConnection: client =>
-      console.log(chalk.green(`SOCKET CONNECTED: ${client.id}`)),
-    onAction: (client, action) =>
-      console.log(chalk.cyan(`INCOMING ACTION: ${action.type}`)),
-    onEmission: action =>
-      console.log(chalk.yellow(`OUTGOING ACTION: ${action.type}`)),
-    onDisconnect: clientId =>
-      console.log(chalk.red(`SOCKET DISCONNECTED: ${clientId}`)),
   },
 };
 

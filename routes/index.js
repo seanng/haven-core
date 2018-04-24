@@ -1,32 +1,24 @@
-const express = require('express');
-const createError = require('http-errors');
+const routes = require('express').Router();
+const auth = require('./auth');
+const customer = require('./customer');
+const employee = require('./employee');
+const hotels = require('./hotels');
+const profile = require('./profile');
+const stays = require('./stays');
+const paymentmethods = require('./paymentmethods');
+const surcharge = require('./surcharge');
 
-const router = express.Router();
-
-/* GET home page. */
-const indexRouter = () => {
-  router.get('/', (req, res) => {
-    res.render('index', { title: 'Express' });
-  });
-};
-
-const handleNotFound = (req, res, next) => {
-  next(createError(404));
-};
-
-const handleServerErrors = (err, req, res) => {
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-};
+routes.use('/auth', auth);
+routes.use('/customer', customer);
+routes.use('/employee', employee);
+routes.use('/hotels', hotels);
+routes.use('/profile', profile);
+routes.use('/stays', stays);
+routes.use('/paymentmethods', paymentmethods);
+routes.use('/surcharge', surcharge);
 
 module.exports = app => {
-  app.use('/', indexRouter());
-  app.use(handleNotFound);
-  app.use(handleServerErrors);
+  app.use('/api', routes);
 
   return app;
 };
