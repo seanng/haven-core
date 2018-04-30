@@ -1,5 +1,5 @@
-const { getConfigurationValue } = require('../config/env');
 const Sequelize = require('sequelize');
+const { getConfigurationValue } = require('../config/env');
 
 const dbConfig = getConfigurationValue('postgres');
 const sequelize = new Sequelize(

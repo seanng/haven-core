@@ -24,12 +24,16 @@ exports.customerPostAuth = async req => {
   const { password } = req.body;
   const email = req.body.email.toLowerCase();
   const customer = await Customer.fetchOne({ email });
-  await customer.comparePassword(password);
+  const passwordSuccess = await customer.comparePassword(password);
+  if (!passwordSuccess) {
+    throw new Error('Invalid Password');
+  }
   const customerBookingStatus = await Stay.getCustomerBookingStatus(
     customer.id
   );
+  const customerInfo = customerBookingStatus || customer.toJSON();
   return {
-    data: { ...customerBookingStatus, token: signToken(customer.id) },
+    data: { ...customerInfo, token: signToken(customer.id) },
     customerId: customer.id,
   };
 };
@@ -38,9 +42,12 @@ exports.employeePostAuth = async req => {
   const { password } = req.body;
   const email = req.body.email.toLowerCase();
   const employee = await Employee.fetchOne({ email });
-  await employee.comparePassword(password);
-  const token = signToken(employee.id);
-  return { token, employee };
+  const passwordSuccess = await employee.comparePassword(password);
+  if (passwordSuccess) {
+    const token = signToken(employee.id);
+    return { token, employee };
+  }
+  throw new Error('Invalid Password');
 };
 
 exports.validateCustomerToken = async function validate(req) {
@@ -54,8 +61,9 @@ exports.validateCustomerToken = async function validate(req) {
   }
   const customer = await Customer.fetchOne({ id: userId });
   if (customer) {
-    return { data: { ...customer, token } };
+    return { data: { ...customer.toJSON(), token } };
   }
+  throw new Error('Invalid Customer Token');
 };
 
 exports.validateEmployeeToken = async req => {
