@@ -56,11 +56,13 @@ exports.updatePaymentCustomer = (stripeId, params) =>
 exports.deletePaymentMethod = (stripeId, cardId) =>
   stripe.customers.deleteCard(stripeId, cardId);
 
-exports.getAllPaymentSources = stripeId =>
-  stripe.customers.retrieve(stripeId).then(response => ({
+exports.getAllPaymentSources = async stripeId => {
+  const response = await stripe.customers.retrieve(stripeId);
+  return {
     defaultMethod: response.default_source,
     paymentMethods: response.sources.data,
-  }));
+  };
+};
 
 exports.computeRoomCharge = ({
   checkOutTime,
@@ -85,4 +87,12 @@ exports.chargeCustomer = (customerStripeId, hotelStripeId, amount) =>
       account: hotelStripeId,
       amount: amount * 0.8, // assuming we take 20% cut.
     },
+  });
+
+exports.authorizePaymentSource = source =>
+  stripe.charges.create({
+    currency: 'hkd',
+    amount: 500,
+    capture: false,
+    source,
   });
