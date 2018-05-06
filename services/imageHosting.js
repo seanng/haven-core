@@ -42,18 +42,13 @@ const createFile = blob =>
     logger.error('error in createFile', createFileErr);
   });
 
-const decodeBase64Image = dataString =>
-  new Promise((resolve, reject) => {
-    const matches = dataString.match(/^data:([A-Za-z-+/]+);base64,(.+)$/);
-
-    if (matches.length !== 3) {
-      return reject(new Error('Invalid input string'));
-    }
-
-    const response = Buffer.from(matches[2], 'base64');
-
-    return resolve(response);
-  });
+const decodeBase64Image = dataString => {
+  const matches = dataString.match(/^data:([A-Za-z-+/]+);base64,(.+)$/);
+  if (matches.length !== 3) {
+    throw new Error('Invalid input string');
+  }
+  return Buffer.from(matches[2], 'base64');
+};
 
 const sendUploadToGCS = (fileBuffer, prefix) =>
   new Promise((resolve, reject) => {
