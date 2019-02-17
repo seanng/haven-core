@@ -51,6 +51,7 @@ const fakeData = {
   ],
   hotels: [
     {
+      id: 1,
       name: 'The Grand Hyatt Hong Kong',
       locationAddress:
         'Hong Kong Convention And Exhibition Centre, 1 Harbour Rd, Wan Chai, Hong Kong',
@@ -72,6 +73,7 @@ const fakeData = {
       amenities: ['miniBar'],
     },
     {
+      id: 2,
       name: 'Regal Hotel Wanchai',
       locationAddress: '88 Yee Wo St, Causeway Bay',
       locationLatitude: 22.279148,
@@ -89,15 +91,16 @@ const fakeData = {
       description: `Lorem ipsum dolor sit amet, pro ut accusamus elaboraret. Ei quidam definitiones eum, ex eruditi tibique definiebas sed. Sed epicurei delicata consequat at. No habeo evertitur duo.
 
       Epicuri platonem moderatius his id. Pri audiam nominati signiferumque an, mel id mundi aliquam offendit. Ad audiam similique interesset cum, mei malis ubique epicurei ei, ei tota dignissim interpretaris vis. Corrumpit persecuti mel ne, ea eripuit denique argumentum sed, mel id quas noluisse. An aliquam graecis his, ei his malis utinam labores.
-  
+
       Usu eu alii lucilius dignissim. In iisque mediocritatem pro, ad vel labore salutandi disputando, ad ius assentior instructior. Vis elitr munere ex, at malorum gubergren sit, summo definitionem ei qui. Te sit virtute nominavi persequeris, vel cu idque essent denique, eum no case nobis. Modus scripserit cu his, cum quas dolore ei.
-  
+
       Nec cu wisi errem. Eu ius reque nobis, nam commune epicurei no, ut sea apeirian comprehensam mediocritatem. Sale aperiri maiestatis pri eu, ea eam dolorem maiorum efficiendi, his te mentitum detraxit. Ferri laoreet deterruisset te sea. His nostro ceteros cu, et liber semper duo.`,
       roomType: 'Deluxe Room',
       stripeId: 'acct_1CFjUWHzSDnfoId9',
       amenities: ['miniBar'],
     },
     {
+      id: 3,
       name: 'The Peninsula Hong Kong',
       locationAddress: 'Salisbury Rd, Tsim Sha Tsui, Hong Kong',
       locationLatitude: 22.295102,
@@ -115,9 +118,10 @@ const fakeData = {
       description:
         '<p>&hearts; nice job!</p><p>A 5-minute walk from Wan Chai Ferry Pier, this upscale, high-rise hotel with a glass facade is also an 8-minute walk from the Hong Kong Convention and Exhibition Centre and 4 km from Victoria Harbour.</p><p>Relaxed rooms with marble bathrooms feature flat-screen TVs, minibars and tea and coffeemaking facilities. Upgraded rooms add sitting areas and balconies with city/harbor views. Suites offer living/dining areas. Room service is available.</p><p><b>Amenities include 3 stylish eateries, a bar and a lounge with live music, plus a business center, a gym and an outdoor seasonal pool. Paid parking is available.</b></p>',
       roomType: 'Deluxe Room',
-      amenities: ['wifi', 'gym', 'laundry', 'minibar', 'hairdryer'],
+      amenities: ['freeWifi'],
     },
     {
+      id: 4,
       name: 'Sheraton Hotel Kowloon',
       locationAddress: '88 Yee Wo St, Causeway Bay',
       locationLatitude: 22.279148,
@@ -135,9 +139,9 @@ const fakeData = {
       description: `Lorem ipsum dolor sit amet, pro ut accusamus elaboraret. Ei quidam definitiones eum, ex eruditi tibique definiebas sed. Sed epicurei delicata consequat at. No habeo evertitur duo.
 
       Epicuri platonem moderatius his id. Pri audiam nominati signiferumque an, mel id mundi aliquam offendit. Ad audiam similique interesset cum, mei malis ubique epicurei ei, ei tota dignissim interpretaris vis. Corrumpit persecuti mel ne, ea eripuit denique argumentum sed, mel id quas noluisse. An aliquam graecis his, ei his malis utinam labores.
-  
+
       Usu eu alii lucilius dignissim. In iisque mediocritatem pro, ad vel labore salutandi disputando, ad ius assentior instructior. Vis elitr munere ex, at malorum gubergren sit, summo definitionem ei qui. Te sit virtute nominavi persequeris, vel cu idque essent denique, eum no case nobis. Modus scripserit cu his, cum quas dolore ei.
-  
+
       Nec cu wisi errem. Eu ius reque nobis, nam commune epicurei no, ut sea apeirian comprehensam mediocritatem. Sale aperiri maiestatis pri eu, ea eam dolorem maiorum efficiendi, his te mentitum detraxit. Ferri laoreet deterruisset te sea. His nostro ceteros cu, et liber semper duo.`,
       roomType: 'Deluxe Room',
       stripeId: 'acct_1CFjUWHzSDnfoId9',
@@ -338,30 +342,35 @@ const fakeData = {
       roomNumber: 1025,
     },
     {
-      hotelId: 1,
+      hotelId: 2,
       status: 'AVAILABLE',
       roomType: 'Deluxe Room',
       roomNumber: 1024,
     },
     {
-      hotelId: 1,
+      hotelId: 2,
+      status: 'AVAILABLE',
+      roomType: 'Deluxe Room',
+      roomNumber: 1025,
+    },
+    {
+      hotelId: 3,
       status: 'AVAILABLE',
       roomType: 'Deluxe Room',
       roomNumber: 1111,
     },
     {
-      hotelId: 1,
+      hotelId: 4,
       roomType: 'Deluxe Room',
       status: 'AVAILABLE',
       roomNumber: 12321,
     },
     {
-      hotelId: 1,
+      hotelId: 3,
       roomType: 'Deluxe Room',
       status: 'AVAILABLE',
       roomNumber: 123213,
     },
-
     {
       hotelId: 1,
       customerId: 1,
